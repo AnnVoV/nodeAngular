@@ -24,6 +24,17 @@ scotchTodo.controller('mainController',function($scope,$http){
             .error(function(data){
                 console.log('Error:',data);
             })
+    };
 
+    //绑定deleteTodo 方法
+    $scope.deleteTodo = function(id){
+        $http.delete('api/todos/'+id)
+            .success(function(data){
+                $scope.todos = data;
+                console.log(data);
+            })
+            .error(function(data){
+                console.log('Error:',data);
+            });
     }
 });

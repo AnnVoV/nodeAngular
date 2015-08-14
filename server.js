@@ -26,9 +26,7 @@ app.use(methodOverride());
 
 
 
-app.use('/',router,function(req,res,next){
-    console.log('lalalalalalala');
-});
+app.use('/',router);
 
 app.get('*',function(req,res){
     res.sendFile('./public/<index class="html"></index>');
