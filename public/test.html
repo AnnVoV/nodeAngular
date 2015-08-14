@@ -1,0 +1,29 @@
+<!doctype html>
+<!-- phonecatApp 是我们的module, 这个module包含PhoneListCtrl -->
+<html lang="en" ng-app="phonecatApp">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="js/comm/angular.js"></script>
+  <script src="js/comm/angular-route.js"></script>
+  <!-- 模块是在app.js 中定义的 -->
+  <script src="js/app.js"></script>
+  <!-- 控制器是在controller.js 中定义的 -->
+  <script src="js/controllers.js"></script>
+  <style type="text/css">
+        body {
+            padding: 10px;
+        }
+
+        .m-img {
+            width:200px;
+            height:200px;
+        }
+  </style>
+</head>
+<body ng-controller = "PhoneListCtrl">
+    <div ng-view></div>
+    <!-- 页面字模板 根据路由进行渲染 -->
+</body>
+</html>
