@@ -1,0 +1,22 @@
+<div class="col-xs-6 col-md-3  m-item" ng-repeat="list in lists">
+    <a href="#/list/{{list._id}}">
+        <div>
+            <img ng-src="img/{{list.picName}}">
+        </div>
+
+        <div>
+            <span class="title"><{{list.title}}></span>
+            <span class="desc">{{list.desc}}</span>
+        </div>
+
+        <div>
+            <span class="price">￥<span class="j-price">{{list.price}}</span>起</span>
+
+           
+            <span class="orgPrice" ng-show="{{list.orgPrice}}">￥<span class="j-orgPrice">{{list.orgPrice}}</span></span>
+            
+
+            <span class="satisfy">满意度 <span>{{list.satisfy}}</span>%</span>
+        </div>
+    </a>
+</div>

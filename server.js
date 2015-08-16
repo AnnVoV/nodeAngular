@@ -15,7 +15,7 @@ db.once('open', function() {
 });
 
 //mongoose.connect ('mongodb://localhost/数据库名称')
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/travelDb');
 
 
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users                                       // log every request to the console
@@ -26,12 +26,8 @@ app.use(methodOverride());
 
 
 
-app.use('/',router,function(req,res,next){
-    console.log('lalalalalalala');
-});
+app.use('/',router);
 
-app.get('*',function(req,res){
-    res.sendFile('./public/<index class="html"></index>');
-})
+
 
 app.listen(8088);

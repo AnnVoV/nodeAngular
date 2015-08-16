@@ -1,29 +1,20 @@
 'use strict';
-var scotchTodo = angular.module('scotchTodo',[]);
 
-scotchTodo.controller('mainController',function($scope,$http){
-    $scope.formData = {};
+var touristListControllers = angular.module('touristListControllers',[]);
 
-    //因为这个没有绑定在事件里面，所以会自动执行
-    $http.get('/api/todos')
+touristListControllers.controller('touristListCtrl',function($scope,$http){
+    $http.get('/api/list')
         .success(function(data){
-            $scope.todos = data;
             console.log(data);
+            $scope.lists = data;
         })
-        .error(function(data){
-            console.log('Error:',data);
+        .error(function(err){
+            console.log(err);
         });
-
-    //绑定createTodo 方法
-    $scope.createTodo = function(){
-        alert('createTodo list ......');
-        $http.post('/api/todos',$scope.formData)
-            .success(function(data){
-                $scope.todos = data;
-            })
-            .error(function(data){
-                console.log('Error:',data);
-            })
-
-    }
 });
+
+touristListControllers.controller('touristDetailCtrl',function($scope,$http,$routeParams){
+    $scope.data = 'this is a test';
+    console.log($routeParams.id);
+});
+
