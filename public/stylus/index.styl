@@ -8,6 +8,7 @@ body
     margin 0px auto
     margin-top 80px
 
+
 .m-item
     margin-top 30px
     a 
@@ -44,6 +45,7 @@ body
 
 .m-content
     width 100%
+    overflow hidden
     
     img
         margin-top 20px
@@ -137,14 +139,20 @@ body
     
     .m-recommend
         font-size 12px
+        padding-left 20px
+        margin-top 20px
         .recommend
+            height 20px
             font-size 14px
             font-weight bold
             color #289d47
             background url('http://img1.tuniucdn.com/img/20140324/super/ties-24.png') 0 0 no-repeat
-            background-position -280px -30px
+            background-position 0px -145px
+            padding-left 40px
         ul
             margin-left 10px
+        li
+            margin-top 10px
 
 .form_date
     width 400px !important
@@ -152,7 +160,72 @@ body
 .m-info-tip
     font-size 12px
     color gray
+
+.m-information
+    margin-top 20px
+    border 2px solid orange 
+    background #fffaf5
     
+    table
+        margin-left 50px
+        width 600px
+        font-size 12px
+  
+    .step1
+        height 61px
+        line-height 61px
+        display flex
+        flex-flow row
+    
+    .step2,.step3
+        padding 20px
+        background #fff
+        border-top 1px solid orange
+    
+    .step3
+        border-top 3px solid #ddd
+        .content
+            margin-left 50px
+            .title
+                font-size 12px
+                font-weight bold
+                color #2e9900
+            .desc
+                margin-top 20px
+                font-size 12px
+            .tip
+                color #f80
+       
+
+    .item 
+        position relative
+        flex 1  1 0
+        text-align center
+    
+    .m-reg-btn
+        position absolute
+        top 50%
+        transform translateY(-50%)
+        width 128px
+        height 35px
+        line-height 35px
+        color #fff
+        text-align center
+        background #f80
+
+.m-packages 
+    margin-top 10px
+    width 100%
+    overflow hidden
+    li
+        float left
+        width 120px
+        font-size 12px
+        height 40px
+        line-height 40px
+        text-align center
+        border 1px solid #979797
+        margin-left 10px
 
 .f-left
     float left

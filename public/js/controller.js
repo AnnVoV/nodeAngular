@@ -16,5 +16,14 @@ touristListControllers.controller('touristListCtrl',function($scope,$http){
 touristListControllers.controller('touristDetailCtrl',function($scope,$http,$routeParams){
     $scope.data = 'this is a test';
     console.log($routeParams.id);
+
+    $http.get('/api/detail')
+         .success(function(data){
+            console.log(data);
+         })
+         .error(function(err){
+            console.log(err);
+         });
+        
 });
 
