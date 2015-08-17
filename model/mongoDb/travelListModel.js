@@ -1,20 +1,20 @@
 var mongoose = require('mongoose');
 
+//我们将会通过detailId的值去查询到具体的detail信息
 var listSchema = new mongoose.Schema({
     picName: String,
     title: String,
     desc: String,
     price: Number,
     orgPrice: Number,
-    satisfy: Number
+    satisfy: Number,
+    detailId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'detail'
+    }
 });
 
 var detailSchema = new mongoose.Schema({
-    //将这张表detail表的listid 与list表相互关联
-    listid: {
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'list'
-    },
     perMonth: Number,
     accounts: Number,
     attention: Number,
@@ -31,20 +31,17 @@ var detailSchema = new mongoose.Schema({
 });
 
 
-detailSchema.statics = {
-    findById: function(id,callback){
-        return this.findOne({_id:id}).populate('listid')
+listSchema.statics = {
+    findDetailByListId: function(listId, callback){
+        return this
+               .findOne({_id: listId}).populate('detailId')
                .exec(callback);
     }
 };
 
-
 //定义数据表的数据模型
 var list = mongoose.model('list', listSchema);
 var detail = mongoose.model('detail',detailSchema);
-
-
-
 
 
 module.exports.List = list;
