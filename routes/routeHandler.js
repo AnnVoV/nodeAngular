@@ -37,6 +37,7 @@ router.get('/api/detail',function(req,res){
 
             resultData = {
                 name: detailInfo.title,
+                picName: detailInfo.picName,
                 price: detailInfo.price,
                 orgPrice: detailInfo.orgPrice,
                 satisfy: detailInfo.satisfy,

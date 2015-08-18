@@ -28,3 +28,44 @@ $http 接受的配置项有：
 * cache 缓存
 * timeout 超时毫秒，超时的请求会被取消
 * withCredentials 跨域安全策略的一个东西
+
+### Angular 自定义Directive 指令
+------------------------
+
+参考：https://docs.angularjs.org/guide/directive
+
+````
+<html ng-app='myApp'>
+<head>
+    <title>Watch实例</title>
+    <style>
+        .row {
+            margin:10px;
+        }
+    </style>
+    <script src="js/comm/angular.js"></script>
+</head>
+<body>
+    <!-- 要界定清楚界限 -->
+    <div ng-controller="myController">
+        <div my-customer/>
+    </div>
+    <div>no effect by hello-world</div>
+    <script>
+        var app = angular.module('myApp', []);
+        //在控制器的基础上添加directive
+        app.controller('myController', function($scope){
+            $scope.customer = {
+                name: 'Ann',
+                words: 'Fighting,Girl!'
+            };
+        }).directive('myCustomer',function(){
+            return {
+                template: 'Name: {{customer.name}} Address: {{customer.words}}'
+            };
+        });
+    </script>
+</body>
+</html>
+
+````

@@ -1,4 +1,10 @@
 <div class="m-container m-border">
+    
+    <div ng-controller="testCtrl">
+        <input type="text" placeholder="enter you like color" ng-model="color"/>
+        <hello-world/>
+    </div>
+
     <div>
         {{name}}
         <span class="m-special"> 特价 </span>
@@ -6,7 +12,7 @@
     </div>
     <div class="m-content">
         <div class="f-left m-left">
-            <img src="img/shangrila.jpg"/>
+            <img src="img/{{picName}}"/>
             <div class="m-partial">
             </div>
         </div>
@@ -32,11 +38,11 @@
                         <div>满意度</div>
                     </li>
                     <li>
-                        <div class="content">{{accounts}}%</div>
+                        <div class="content">{{accounts}}</div>
                         <div>点评数</div>
                     </li>
                     <li>
-                        <div class="content">{{attention}}%</div>
+                        <div class="content">{{attention}}</div>
                         <div>关注数</div>
                     </li>
                 </ul>
