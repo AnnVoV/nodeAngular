@@ -36,6 +36,10 @@ listSchema.statics = {
         return this
                .findOne({_id: listId}).populate('detailId')
                .exec(callback);
+    },
+    findListById: function(listId,callback){
+        return this.findOne({_id: listId})
+               .exec(callback);
     }
 };
 

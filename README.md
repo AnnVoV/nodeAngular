@@ -15,3 +15,16 @@
   }
 
 ````
+
+$http 接受的配置项有：
+
+* method 方法
+* url 路径
+* params GET请求的参数
+* data post请求的参数
+* headers 头
+* transformRequest 请求预处理函数
+* transformResponse 响应预处理函数
+* cache 缓存
+* timeout 超时毫秒，超时的请求会被取消
+* withCredentials 跨域安全策略的一个东西

@@ -1,11 +1,9 @@
 'use strict';
-
 var touristListControllers = angular.module('touristListControllers',[]);
 
 touristListControllers.controller('touristListCtrl',function($scope,$http){
     $http.get('/api/list')
         .success(function(data){
-            console.log(data);
             $scope.lists = data;
         })
         .error(function(err){
@@ -14,16 +12,20 @@ touristListControllers.controller('touristListCtrl',function($scope,$http){
 });
 
 touristListControllers.controller('touristDetailCtrl',function($scope,$http,$routeParams){
-    $scope.data = 'this is a test';
-    console.log($routeParams.id);
+    var listId = $routeParams.id;
+    console.log(listId);
 
-    $http.get('/api/detail')
+    $http.get('/api/detail?listId='+listId)
          .success(function(data){
+            console.log('callbackdata');
             console.log(data);
+            for(var key in data){
+                $scope[key] = data[key];
+            }
          })
          .error(function(err){
+            console.log('error:');
             console.log(err);
          });
-        
 });
 

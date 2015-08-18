@@ -1,6 +1,6 @@
 <div class="m-container m-border">
     <div>
-        <马尔代夫香格里拉岛Shangri-la4晚6日自助游>上海出发
+        {{name}}
         <span class="m-special"> 特价 </span>
         <div class="m-info-tip">本产品由北京途牛国际旅行社有限公司杭州分公司及具有资质的合作旅行社提供相关服务</div>
     </div>
@@ -16,10 +16,10 @@
                 <ul>
                     <li>促销价：
                         <span class="price-activity">
-                            ￥<span class="price">15315</span>
+                            ￥<span class="price">{{price}}</span>
                         </span>
                         起
-                        <span class="special">（立省￥<span>1000</span>）</span>
+                        <span class="special">（立省￥<span>{{orgPrice-price}}</span>）</span>
                     </li>
                     <li>牛分期：￥1376期/起</li>
                     <li>途牛价：￥16315起</li>
@@ -28,34 +28,34 @@
             <div class="m-info">
                 <ul>
                     <li>
-                        <div class="content">98%</div>
+                        <div class="content">{{satisfy}}%</div>
                         <div>满意度</div>
                     </li>
                     <li>
-                        <div class="content">98%</div>
+                        <div class="content">{{accounts}}%</div>
                         <div>点评数</div>
                     </li>
                     <li>
-                        <div class="content">98%</div>
+                        <div class="content">{{attention}}%</div>
                         <div>关注数</div>
                     </li>
                 </ul>
             </div>
             <div class="m-detail">
-                <div>
+                <div ng-show = "{{food}}">
                     <span class="tit">行程套餐：</span>
                     <span>
                         <label>
-                            机+酒 包含:早晚餐+内陆飞机
+                            {{food}}
                         </label>
                     </span>
                 </div>
 
-                <div>
-                    <span class="tit">行程套餐：</span>
+                <div ng-show = "{{travel}}">
+                    <span class="tit">行程概要：</span>
                     <span class="self_tour">
                         <label>
-                            机+酒 包含:早晚餐+内陆飞机
+                            {{travel}}
                         </label>
                     </span>
                 </div>
@@ -88,10 +88,7 @@
             <div class="m-recommend">
                 <div class="recommend">产品经理推荐</div>
                 <ul>
-                    <li>★马累机场专人接送机，优质服务从机场开始 </li>
-                    <li>★马累机场专人接送机，优质服务从机场开始 </li>
-                    <li>★马累机场专人接送机，优质服务从机场开始 </li>
-                    <li>★马累机场专人接送机，优质服务从机场开始 </li>
+                    <li ng-repeat="li in recommends">★{{li}}</li>
                 </ul>
             </div>
         </div>
@@ -103,30 +100,21 @@
         <div class="step1">
             <div class="item">
                 <select>
-                    <option selected="selected">08-27 16815元/人</option>
-                    <option>08-27 16815元/人</option>
-                    <option>08-27 16815元/人</option>
-                    <option>08-27 16815元/人</option>
+                    <option ng-repeat="opt in chooseList">{{opt}}</option>
                 </select>
             </div>
             
             <div class="item">
                 <span class="tip">成人</span>
                 <select>
-                    <option selected="selected">2</option>
-                    <option>2</option>
-                    <option>2</option>
-                    <option>2</option>
+                    <option ng-repeat="people in peopleNum">{{people}}</option>
                 </select>
             </div>
                 
             <div class="item">
                 <span class="tip">儿童(2-12岁)</span>
                 <select class="item">
-                    <option selected="selected">2</option>
-                    <option>2</option>
-                    <option>2</option>
-                    <option>2</option>
+                    <option ng-repeat="people in peopleNum">{{people}}</option>
                 </select>
             </div>
             
