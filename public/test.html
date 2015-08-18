@@ -9,16 +9,23 @@
     <script src="js/comm/angular.js"></script>
 </head>
 <body>
-    <hello-world/>
+    <!-- 要界定清楚界限 -->
+    <div ng-controller="myController">
+        <div my-customer/>
+    </div>
     <div>no effect by hello-world</div>
     <script>
         var app = angular.module('myApp', []);
-        app.directive('helloWorld', function() {
-          return {
-              restrict: 'AE',
-              replace: 'true',
-              template: '<h3>Hello World!!</h3>'
-          };
+        //在控制器的基础上添加directive
+        app.controller('myController', function($scope){
+            $scope.customer = {
+                name: 'Ann',
+                words: 'Fighting,Girl!'
+            };
+        }).directive('myCustomer',function(){
+            return {
+                template: 'Name: {{customer.name}} Address: {{customer.words}}'
+            };
         });
     </script>
 </body>
