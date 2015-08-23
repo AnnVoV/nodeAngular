@@ -1,8 +1,9 @@
 <div class="m-container m-border">
     
     <div ng-controller="testCtrl">
-        <input type="text" placeholder="enter you like color" ng-model="color"/>
-        <hello-world/>
+        <input type="text" ng-model="color" placeholder="enter you like color" />
+        <!--  将变量设置在属性里面 -->
+        <hello-world color-attr="{{color}}"/>
     </div>
 
     <div>

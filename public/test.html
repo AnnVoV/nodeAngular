@@ -10,11 +10,37 @@
 </head>
 <body>
     <!-- 要界定清楚界限 -->
-    <div ng-controller="myController">
-        <div my-customer/>
+  <div class="main" ng-controller="productListCtrl">
+    <div class="r clearfix mt5">
+        <a class="r btn-like tc" href="javascript:;" ng-click="search(txtKeywords)">搜索</a>
+        <input type="text" class="r search-text" ng-model="txtKeywords" />
+    </div>    
+    <div class="sort">
+        <form action="">
+      <dl class="l clearfix" ng-init="selectOrder='';">
+        <dt>排序：</dt>
+        <dd ng-click="changeOrder('');">综合</dd>
+        <dd ng-click="changeOrder('VisitorVolume');">热门</dd>
+        <dd ng-click="changeOrder('CreateDate');">新品</dd>
+        <dd ng-click="changeOrder('Price');">价格</dd>
+      </dl>
+        </form>
     </div>
-    <div>no effect by hello-world</div>
-    <script>
+  <div class="wrapper" ng-controller="productListItemCtrl">
+    <div class="product-list ">
+      <ul class="clearfix">
+        <li ng-repeat="item in productList.DataList">
+          <div class="img-box">
+            <a href="javascript:;"><img ng-src="{{item.DefaultImage}}" alt="{{item.Title}}" /></a>
+          </div>
+          <div class="p-name" title="产品名称">{{item.Title}}</div>
+          <div class="p-price">{{ item.Price }}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+    <!--<script>
         var app = angular.module('myApp', []);
         //在控制器的基础上添加directive
         app.controller('myController', function($scope){
@@ -27,6 +53,6 @@
                 template: 'Name: {{customer.name}} Address: {{customer.words}}'
             };
         });
-    </script>
+    </script>-->
 </body>
 </html>

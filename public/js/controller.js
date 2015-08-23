@@ -6,18 +6,25 @@ touristListControllers.controller('testCtrl', function($scope, $http){
 
 }).directive('helloWorld', function(){
     return {
+        
+        restrict: 'AE',
+        replace: true,
         template: '<div style="color:{{color}}">Miss Mum</div>',
         link: function(scope, elem, attrs){
             elem.bind('click', function(){
-                elem.css('background-color', '#ddd');
+                elem.css('backgroundColor', '#ddd');
                 scope.$apply(function(){
-                    scope.color='#ddd';
+                    scope.color = 'green';
                 });
+                /*scope.$apply(function(){
+                    scope.color='blue';
+                    console.log(elem);
+                });*/
             });
 
             elem.bind('mouseover', function(){
                 elem.css('cursor', 'pointer');
-            })
+            });
         }
     }
 });
